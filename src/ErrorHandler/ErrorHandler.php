@@ -3,7 +3,7 @@
 
 namespace ErrorHandler;
 
-class errorHandler {
+class ErrorHandler {
 
     protected static $className = __CLASS__;
 
