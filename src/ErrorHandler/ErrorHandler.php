@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: merdoc_if
- * Date: 14.08.15
- * Time: 15:44
- */
+/** */
 
 namespace ErrorHandler;
 
@@ -25,7 +20,7 @@ class errorHandler {
             $childClass = get_called_class();
 
             /** initialize  ReflectionMethod */
-            $reflectionMethod = new ReflectionMethod($childClass, $method);
+            $reflectionMethod = new \ReflectionMethod($childClass, $method);
 
             /** all parameters selected method */
             $methodParameters = $reflectionMethod->getParameters();
@@ -39,7 +34,7 @@ class errorHandler {
             self::validateUserParameters($userParameters);
 
             /** initialize  ReflectionMethod */
-            $reflectionMethod = new ReflectionMethod(self::$className, $method);
+            $reflectionMethod = new \ReflectionMethod(self::$className, $method);
 
             /** all parameters selected method */
             $methodParameters = $reflectionMethod->getParameters();
@@ -67,10 +62,11 @@ class errorHandler {
         }
     }
 
+
     /**
      * @param $variable
-     * @return mixed
-     * @throws Exception
+     * @return bool
+     * @throws \Exception
      */
     protected static function isStringDefault($variable) {
         if(!is_string($variable)){
@@ -79,10 +75,11 @@ class errorHandler {
         return true;
     }
 
+
     /**
      * @param $variable
      * @return bool
-     * @throws Exception
+     * @throws \Exception
      */
     protected static function isArrayDefault($variable){
         if(!is_array($variable)){
@@ -144,10 +141,11 @@ class errorHandler {
 
     }
 
+
     /**
-     * @param string $action_name
-     * @return mixed
-     * @throws Exception
+     * @param $action_name
+     * @return bool
+     * @throws \Exception
      */
     public static function actionExist($action_name){
 
@@ -159,11 +157,12 @@ class errorHandler {
         return true;
     }
 
+
     /**
      * @param $action_name
      * @param $route_spec
      * @return mixed
-     * @throws Exception
+     * @throws \Exception
      */
     public static function arrayKeyExist($action_name , $route_spec) {
 
@@ -177,7 +176,7 @@ class errorHandler {
      * @param $file_name
      * @return mixed
      */
-/*    public static function fileExist($file_name) {
+    public static function fileExist($file_name) {
         if(file_exists($file_name)){
             return $file_name;
         }else{
@@ -185,20 +184,20 @@ class errorHandler {
             self::toString($array);
             die();
         }
-    }*/
+    }
 
 
     /**
      * @param $dir
      * @return bool
-     * @throws Exception
+     * @throws \Exception
      */
-/*    public static function dirExist($dir){
+    public static function dirExist($dir){
         if(!is_dir($dir)){
             throw new \Exception('Directory does not exist');
         }
         return true;
-    }*/
+    }
 
     /**
      * @param $message
