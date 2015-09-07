@@ -193,12 +193,12 @@ class errorHandler {
      * @return bool
      * @throws Exception
      */
-    public static function dirExist($dir){
+/*    public static function dirExist($dir){
         if(!is_dir($dir)){
             throw new \Exception('Directory does not exist');
         }
         return true;
-    }
+    }*/
 
     /**
      * @param $message
