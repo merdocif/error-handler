@@ -35,8 +35,8 @@
       <file leaf-file-name="ErrorHandler.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ErrorHandler/ErrorHandler.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6225166">
-              <caret line="192" column="19" selection-start-line="192" selection-start-column="19" selection-end-line="192" selection-end-column="19" />
+            <state vertical-scroll-proportion="0.24503312">
+              <caret line="179" column="2" selection-start-line="179" selection-start-column="0" selection-end-line="187" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -269,8 +269,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ErrorHandler/ErrorHandler.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6225166">
-          <caret line="192" column="19" selection-start-line="192" selection-start-column="19" selection-end-line="192" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.24503312">
+          <caret line="179" column="2" selection-start-line="179" selection-start-column="0" selection-end-line="187" selection-end-column="7" />
           <folding />
         </state>
       </provider>

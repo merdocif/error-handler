@@ -177,7 +177,7 @@ class errorHandler {
      * @param $file_name
      * @return mixed
      */
-    public static function fileExist($file_name) {
+/*    public static function fileExist($file_name) {
         if(file_exists($file_name)){
             return $file_name;
         }else{
@@ -185,7 +185,7 @@ class errorHandler {
             self::toString($array);
             die();
         }
-    }
+    }*/
 
 
     /**
