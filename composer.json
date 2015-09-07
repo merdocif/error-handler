@@ -1,7 +1,7 @@
 {
   "name": "mifsoft/error-handler",
   "description": "Simple error handler with the output in json format",
-  "type": "composer",
+  "type": "package",
   "license": "MIT",
   "authors": [
     {
