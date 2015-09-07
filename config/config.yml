@@ -1,4 +1,0 @@
-ldap_connect:
-    host: localirish.api
-    domain: irishwater.api
-    port: 389
