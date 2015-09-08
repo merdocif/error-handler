@@ -3,7 +3,7 @@
 
 namespace ErrorHandler;
 
-class ErrorHandler {
+class ErrorCore {
 
     protected static $className = __CLASS__;
 
@@ -62,31 +62,6 @@ class ErrorHandler {
         }
     }
 
-
-    /**
-     * @param $variable
-     * @return bool
-     * @throws \Exception
-     */
-    protected static function isStringDefault($variable) {
-        if(!is_string($variable)){
-            throw new \Exception('Variable is not STRING');
-        }
-        return true;
-    }
-
-
-    /**
-     * @param $variable
-     * @return bool
-     * @throws \Exception
-     */
-    protected static function isArrayDefault($variable){
-        if(!is_array($variable)){
-            throw new \Exception('Variable is not ARRAY');
-        }
-        return true;
-    }
     /**
      * @param $parameter
      * @return bool
@@ -153,21 +128,6 @@ class ErrorHandler {
 
         if(empty($action_name)){
             throw new \Exception('Variable action_name is empty');
-        }
-        return true;
-    }
-
-
-    /**
-     * @param $action_name
-     * @param $route_spec
-     * @return mixed
-     * @throws \Exception
-     */
-    public static function arrayKeyExist($action_name , $route_spec) {
-
-        if(!array_key_exists($route_spec,$action_name)){
-            throw new \Exception('Undefined index');
         }
         return true;
     }
