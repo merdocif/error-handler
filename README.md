@@ -1,7 +1,7 @@
 # Error-handler
 Simple error handler with the output in json format
 
-# Example 
+# Simple example of default methods
 ```php
 <?php
 
@@ -11,5 +11,27 @@ $string = '';
 $array = array(0=>'one',1=>'two');
 
 var_dump(DefaultErrorsMethods::getError('isStringDefault',array($array)));
+```
+# Simple example of customers methods
+
+```php
+<?php
+
+use ErrorHandler\DefaultErrorsMethods;
+
+class ExamplesClass extends DefaultErrorsMethods{
+
+    public function exampleException($variable){
+        if(!is_array($variable)){
+            throw new \Exception('is not array');
+        }
+        return true;
+    }
+}
+
+$exampleString = 'example';
+$exampleArray = array('example');
+
+var_dump(ExamplesClass::getError('exampleException',array($exampleString)));
 
 ```

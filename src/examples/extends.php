@@ -1,7 +1,5 @@
 <?php
 
-
-
 use ErrorHandler\DefaultErrorsMethods;
 
 class ExamplesClass extends DefaultErrorsMethods{
@@ -14,10 +12,7 @@ class ExamplesClass extends DefaultErrorsMethods{
     }
 }
 
-
 $exampleString = 'example';
 $exampleArray = array('example');
 
 var_dump(ExamplesClass::getError('exampleException',array($exampleString)));
-
-var_dump($echo);

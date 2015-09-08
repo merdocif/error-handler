@@ -1,5 +1,4 @@
 <?php
-/** */
 
 namespace ErrorHandler;
 
@@ -99,12 +98,11 @@ class ErrorCore {
      * @param array $userParameters
      * @return int
      */
-
     protected static function compareCountParametersOfMethods($methodParameters, $userParameters) {
 
         /** check if variables $methodParameters and $userParameters an array  */
-        self::isArrayDefault($methodParameters);
-        self::isArrayDefault($userParameters);
+        self::getError('isArrayDefault',array($methodParameters));
+        self::getError('isArrayDefault',array($userParameters));
 
         /** */
         if(count($methodParameters) === count($userParameters) ){
@@ -114,21 +112,6 @@ class ErrorCore {
             die();
         }
 
-    }
-
-    /**
-     * @param $action_name
-     * @return bool
-     * @throws \Exception
-     */
-    public static function actionExist($action_name){
-
-        self::isStringDefault($action_name);
-
-        if(empty($action_name)){
-            throw new \Exception('Variable action_name is empty');
-        }
-        return true;
     }
 
     /**
