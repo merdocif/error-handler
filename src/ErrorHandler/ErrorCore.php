@@ -36,7 +36,6 @@ class ErrorCore {
         if($compare){
             try{
                 call_user_func_array(array($className,$method),$userParameters);
-
             } catch (\Exception $e){
                 if($debug === true){
                     echo 'Error: { File:',$e->getFile(),'{ Line:',$e->getLine(), ' { Message: ', $e->getMessage(),'} } }', "\n";
@@ -53,7 +52,6 @@ class ErrorCore {
      * @return bool
      */
     protected static function validateMethod($parameter) {
-
       if(empty($parameter)){
           echo self::toString('Method Name can not be empty');
           die();
@@ -69,7 +67,6 @@ class ErrorCore {
      * @return bool
      */
     protected static function validateUserParameters($parameter) {
-
         if(empty($parameter)){
             echo self::toString('Method Name can not be empty');
             die();
@@ -88,8 +85,8 @@ class ErrorCore {
     protected static function compareCountParametersOfMethods($methodParameters, $userParameters) {
 
         /** check if variables $methodParameters and $userParameters an array  */
-        self::isArrayDefault($methodParameters);
-        self::isArrayDefault($userParameters);
+        self::isArrayValidate($methodParameters);
+        self::isArrayValidate($userParameters);
 
         if(count($methodParameters) === count($userParameters) ){
             return count($methodParameters);
@@ -97,7 +94,18 @@ class ErrorCore {
             echo self::toString( "Error:Amount method parameters do not match with an actual");
             die();
         }
+    }
 
+    /**
+     * @param $variable
+     * @return bool
+     */
+    protected static function isArrayValidate($variable){
+        if(!is_array($variable)){
+            echo self::toString('Variable is not ARRAY');
+            die();
+        }
+        return true;
     }
 
     /**
@@ -109,15 +117,5 @@ class ErrorCore {
         $array = json_encode($array);
         return $array;
     }
-    /**
-     * @param $variable
-     * @return bool
-     * @throws \Exception
-     */
-    protected static function isArrayDefault($variable){
-        if(!is_array($variable)){
-            throw new \Exception('Variable is not ARRAY');
-        }
-        return true;
-    }
+
 }
