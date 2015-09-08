@@ -169,7 +169,7 @@ class ErrorHandler {
         if(!array_key_exists($route_spec,$action_name)){
             throw new \Exception('Undefined index');
         }
-        return $route_spec;
+        return true;
     }
 
     /**
