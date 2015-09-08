@@ -4,4 +4,4 @@
 * create class DefaultErrorsMethods
 * move in ErrorCore.php to DefaultErrorsMethods.php isStringDefault,isArrayDefault, arrayKeyExist
 * rename method  arrayKeyExist to arrayKeyExistDefault
-
+* add examples

@@ -47,4 +47,32 @@ class DefaultErrorsMethods extends ErrorCore {
         return true;
     }
 
+    /**
+     * @param $file_name
+     * @return mixed
+     */
+    public static function fileExistDefault($file_name) {
+        if(file_exists($file_name)){
+            return $file_name;
+        }else{
+            $array = array('data'=>array('message'=>'There is no specified file, as the name describe the inspection type does not exist '));
+            self::toString($array);
+            die();
+        }
+    }
+
+
+    /**
+     * @param $dir
+     * @return bool
+     * @throws \Exception
+     */
+    public static function dirExistDefault($dir){
+        if(!is_dir($dir)){
+            throw new \Exception('Directory does not exist');
+        }
+        return true;
+    }
+
+
 }
