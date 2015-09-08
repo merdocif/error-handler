@@ -12,43 +12,30 @@ class ErrorCore {
      * @param null $debug
      */
     public static function getError($method,$userParameters,$debug=null){
-        $childClass = NULL;
+        $className = NULL;
         /** if extends  class, search and check child class name */
         if (!method_exists(self::$className, $method)) {
-
-            $childClass = get_called_class();
-
-            /** initialize  ReflectionMethod */
-            $reflectionMethod = new \ReflectionMethod($childClass, $method);
-
-            /** all parameters selected method */
-            $methodParameters = $reflectionMethod->getParameters();
-
-            /** compare users and own method parameters */
-            $compare = self::compareCountParametersOfMethods($methodParameters, $userParameters);
-
+            $className = get_called_class();
         } else {
-            /** check method name and userParameters*/
-            self::validateMethod($method);
-            self::validateUserParameters($userParameters);
-
-            /** initialize  ReflectionMethod */
-            $reflectionMethod = new \ReflectionMethod(self::$className, $method);
-
-            /** all parameters selected method */
-            $methodParameters = $reflectionMethod->getParameters();
-
-            /** compare users and own method parameters */
-            $compare = self::compareCountParametersOfMethods($methodParameters, $userParameters);
+            $className = self::$className;
         }
+
+        /** check method name and userParameters*/
+        self::validateMethod($method);
+        self::validateUserParameters($userParameters);
+
+        /** initialize  ReflectionMethod */
+        $reflectionMethod = new \ReflectionMethod($className, $method);
+
+        /** all parameters selected method */
+        $methodParameters = $reflectionMethod->getParameters();
+
+        /** compare users and own method parameters */
+        $compare = self::compareCountParametersOfMethods($methodParameters, $userParameters);
 
         if($compare){
             try{
-                if(!method_exists(self::$className,$method)){
-                    call_user_func_array(array($childClass,$method),$userParameters);
-                }else{
-                    call_user_func_array(array(self::$className,$method),$userParameters);
-                }
+                call_user_func_array(array($className,$method),$userParameters);
 
             } catch (\Exception $e){
                 if($debug === true){
@@ -101,10 +88,9 @@ class ErrorCore {
     protected static function compareCountParametersOfMethods($methodParameters, $userParameters) {
 
         /** check if variables $methodParameters and $userParameters an array  */
-        self::getError('isArrayDefault',array($methodParameters));
-        self::getError('isArrayDefault',array($userParameters));
+        self::isArrayDefault($methodParameters);
+        self::isArrayDefault($userParameters);
 
-        /** */
         if(count($methodParameters) === count($userParameters) ){
             return count($methodParameters);
         }else{
@@ -122,5 +108,16 @@ class ErrorCore {
         $array = array('data'=>array('message'=>$message));
         $array = json_encode($array);
         return $array;
+    }
+    /**
+     * @param $variable
+     * @return bool
+     * @throws \Exception
+     */
+    protected static function isArrayDefault($variable){
+        if(!is_array($variable)){
+            throw new \Exception('Variable is not ARRAY');
+        }
+        return true;
     }
 }

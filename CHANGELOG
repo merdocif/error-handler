@@ -2,6 +2,8 @@
 
 * rename class ErrorHandler.php to ErrorCore.php
 * create class DefaultErrorsMethods
-* move in ErrorCore.php to DefaultErrorsMethods.php isStringDefault,isArrayDefault, arrayKeyExist
+* move in ErrorCore.php to DefaultErrorsMethods.php isStringDefault, arrayKeyExist, fileExist, dirExist
 * rename method  arrayKeyExist to arrayKeyExistDefault
+* rename method  fileExist to fileExistDefault
+* rename method  dirExist to dirExistDefault
 * add examples
