@@ -2,6 +2,8 @@
 Simple error handler with the output in json format
 
 # Install package 
+    
+
 ```json
 
 "mifsoft/error-handler":"dev-dev-alpha-0.0.1"
@@ -30,7 +32,7 @@ use ErrorHandler\DefaultErrorsMethods;
 
 class ExamplesClass extends DefaultErrorsMethods{
 
-    public function exampleException($variable){
+    public static function exampleException($variable){
         if(!is_array($variable)){
             throw new \Exception('is not array');
         }
