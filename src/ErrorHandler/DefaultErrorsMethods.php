@@ -5,6 +5,7 @@
  * Date: 08.09.15
  * Time: 13:10
  */
+
 namespace ErrorHandler;
 
 class DefaultErrorsMethods extends ErrorCore {

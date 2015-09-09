@@ -1,7 +1,16 @@
 # Error-handler
 Simple error handler with the output in json format
 
+# Install package 
+
+
 # Simple example of default methods
+```json
+
+"mifsoft/error-handler":"dev-dev-alpha-0.0.1"
+
+```
+
 ```php
 <?php
 
