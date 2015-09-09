@@ -40,7 +40,7 @@ class DefaultErrorsMethods extends ErrorCore {
      * @return mixed
      * @throws \Exception
      */
-    public static function arrayKeyExistDefault($action_name , $route_spec) {
+    protected static function arrayKeyExistDefault($action_name , $route_spec) {
 
         if(!array_key_exists($route_spec,$action_name)){
             throw new \Exception('Undefined index');
@@ -52,7 +52,7 @@ class DefaultErrorsMethods extends ErrorCore {
      * @param $file_name
      * @return mixed
      */
-    public static function fileExistDefault($file_name) {
+    protected static function fileExistDefault($file_name) {
         if(file_exists($file_name)){
             return $file_name;
         }else{
@@ -68,7 +68,7 @@ class DefaultErrorsMethods extends ErrorCore {
      * @return bool
      * @throws \Exception
      */
-    public static function dirExistDefault($dir){
+    protected static function dirExistDefault($dir){
         if(!is_dir($dir)){
             throw new \Exception('Directory does not exist');
         }

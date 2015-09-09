@@ -50,10 +50,8 @@ class ErrorCore {
                     }else {
                         $json = 'Error: { Message: '. $e->getMessage(). ' }';
                     }
-                    json_encode($json);
+                    return json_encode($json);
                 }
-
-
                 die();
             }
         }
