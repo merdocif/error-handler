@@ -11,7 +11,7 @@ class ErrorCore {
      * @param array $userParameters
      * @param null $debug
      */
-    public static function getError($method,$userParameters,$debug=null){
+    public static function getError($method,$userParameters,$textFormat=null,$debug=null){
         $className = NULL;
         /** if extends  class, search and check child class name */
         if (!method_exists(self::$className, $method)) {
@@ -37,11 +37,22 @@ class ErrorCore {
             try{
                 call_user_func_array(array($className,$method),$userParameters);
             } catch (\Exception $e){
-                if($debug === true){
-                    echo 'Error: { File:',$e->getFile(),'{ Line:',$e->getLine(), ' { Message: ', $e->getMessage(),'} } }', "\n";
-                }else {
-                    echo 'Error: { Message: ', $e->getMessage(), ' }', "\n";
+
+                if($textFormat === true){
+                    if($debug === true){
+                        echo 'Error: { File:',$e->getFile(),'{ Line:',$e->getLine(), ' { Message: ', $e->getMessage(),'} } }', "\n";
+                    }else {
+                        echo 'Error: { Message: ', $e->getMessage(), ' }', "\n";
+                    }
+                }else{
+                    if($debug === true){
+                        json_encode('Error: { File:',$e->getFile(),'{ Line:',$e->getLine(), ' { Message: ', $e->getMessage(),'} } }');
+                    }else {
+                        json_encode('Error: { Message: ', $e->getMessage(), ' }');
+                    }
                 }
+
+
                 die();
             }
         }
