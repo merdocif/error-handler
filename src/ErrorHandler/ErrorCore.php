@@ -46,10 +46,11 @@ class ErrorCore {
                     }
                 }else{
                     if($debug === true){
-                        json_encode('Error: { File:',$e->getFile(),'{ Line:',$e->getLine(), ' { Message: ', $e->getMessage(),'} } }');
+                        $json =  'Error: { File:'.$e->getFile().'{ Line:'.$e->getLine(). ' { Message: '. $e->getMessage().'} } }';
                     }else {
-                        json_encode('Error: { Message: ', $e->getMessage(), ' }');
+                        $json = 'Error: { Message: '. $e->getMessage(). ' }';
                     }
+                    json_encode($json);
                 }
 
 
