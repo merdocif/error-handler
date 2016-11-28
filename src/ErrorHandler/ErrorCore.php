@@ -44,14 +44,14 @@ class ErrorCore {
                     if($debug === true){
                         echo 'Error: { File:',$e->getFile(),'{ Line:',$e->getLine(), ' { Message: ', $e->getMessage(),'} } }', "\n";
                     }else {
-                        array('Error' => array('Message' => $e->getMessage(),),);
-//                        echo '{ "Error": { "Message": ', $e->getMessage(), ' } }', "\n";
+//                        $json = array('Error' => array('Message' => $e->getMessage(),),);
+                        echo '{ "Erro1r": { "Message": ', $e->getMessage(), ' } }', "\n";
                     }
                 }else{
                     if($debug === true){
                         $json =  'Error: { File:'.$e->getFile().'{ Line:'.$e->getLine(). ' { Message: '. $e->getMessage().'} } }';
                     }else {
-                        array('Error' => array('Message' => $e->getMessage(),),);
+                        $json = array('Error' => array('Message' => $e->getMessage(),),);
                       //  $json = '{ "Error": { "Message": '. $e->getMessage(). ' } }';
                     }
                     echo json_encode($json);
