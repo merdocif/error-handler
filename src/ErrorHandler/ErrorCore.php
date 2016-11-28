@@ -42,20 +42,21 @@ class ErrorCore {
 
                 if($textFormat === true){
                     if($debug === true){
-                        echo 'Error: { File:',$e->getFile(),'{ Line:',$e->getLine(), ' { Message: ', $e->getMessage(),'} } }', "\n";
+                        echo 'data: { File:',$e->getFile(),'{ Line:',$e->getLine(), ' { message: ', $e->getMessage(),'} } }', "\n";
                     }else {
-//                        $json = array('Error' => array('Message' => $e->getMessage(),),);
-                        echo '{ "Erro1r": { "Message": ', $e->getMessage(), ' } }', "\n";
+                       $json = array('data' => array('message' => $e->getMessage(),),);
+//                        echo '{ "Erro1r": { "Message": ', $e->getMessage(), ' } }', "\n";
                     }
                 }else{
                     if($debug === true){
-                        $json =  'Error: { File:'.$e->getFile().'{ Line:'.$e->getLine(). ' { Message: '. $e->getMessage().'} } }';
+//                        $json = array('data' => array('message' => $e->getMessage(),),);
+                        $json =  'data: { File:'.$e->getFile().'{ Line:'.$e->getLine(). ' { message: '. $e->getMessage().'} } }';
                     }else {
-                        $json = array('Error' => array('Message' => $e->getMessage(),),);
+                        $json = array('data' => array('message' => $e->getMessage(),),);
                       //  $json = '{ "Error": { "Message": '. $e->getMessage(). ' } }';
                     }
-                    echo json_encode($json);
                 }
+                echo json_encode($json);
                 die();
             }
         }
