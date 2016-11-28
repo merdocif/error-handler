@@ -1,0 +1,9 @@
+* dev-alpha-0.0.1 (2015-09-08)
+
+* rename class ErrorHandler.php to ErrorCore.php
+* create class DefaultErrorsMethods
+* move in ErrorCore.php to DefaultErrorsMethods.php isStringDefault, arrayKeyExist, fileExist, dirExist
+* rename method  arrayKeyExist to arrayKeyExistDefault
+* rename method  fileExist to fileExistDefault
+* rename method  dirExist to dirExistDefault
+* add examples
