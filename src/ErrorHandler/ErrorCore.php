@@ -44,13 +44,13 @@ class ErrorCore {
                     if($debug === true){
                         echo 'Error: { File:',$e->getFile(),'{ Line:',$e->getLine(), ' { Message: ', $e->getMessage(),'} } }', "\n";
                     }else {
-                        echo 'Error: { Message: ', $e->getMessage(), ' }', "\n";
+                        echo '{ Error: { Message: ', $e->getMessage(), ' } }', "\n";
                     }
                 }else{
                     if($debug === true){
                         $json =  'Error: { File:'.$e->getFile().'{ Line:'.$e->getLine(). ' { Message: '. $e->getMessage().'} } }';
                     }else {
-                        $json = 'Error: { Message: '. $e->getMessage(). ' }';
+                        $json = '{ Error: { Message: '. $e->getMessage(). ' } }';
                     }
                     echo json_encode($json);
                 }
