@@ -7,9 +7,11 @@ class ErrorCore {
     protected static $className = __CLASS__;
 
     /**
-     * @param string $method
-     * @param array $userParameters
+     * @param $method
+     * @param $userParameters
+     * @param null $textFormat
      * @param null $debug
+     * @return string
      */
     public static function getError($method,$userParameters,$textFormat=null,$debug=null){
         $className = NULL;
@@ -50,7 +52,7 @@ class ErrorCore {
                     }else {
                         $json = 'Error: { Message: '. $e->getMessage(). ' }';
                     }
-                    return json_encode($json);
+                    echo json_encode($json);
                 }
                 die();
             }
@@ -98,12 +100,11 @@ class ErrorCore {
         self::isArrayValidate($methodParameters);
         self::isArrayValidate($userParameters);
 
-        if(count($methodParameters) === count($userParameters) ){
-            return count($methodParameters);
-        }else{
+        if(count($methodParameters) != count($userParameters) ){
             echo self::toString( "Error:Amount method parameters do not match with an actual");
             die();
         }
+        return count($methodParameters);
     }
 
     /**

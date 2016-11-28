@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: m1
- * Date: 08.09.15
- * Time: 13:10
- */
 
 namespace ErrorHandler;
 
